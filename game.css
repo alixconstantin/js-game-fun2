@@ -1,0 +1,39 @@
+body {
+    background-color: lightgrey;
+    font-family: monospace;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    color:antiquewhite;
+    background-color:black;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#right {
+    padding: 1rem 2rem;
+    background-image: linear-gradient(to right top, #246613, #408618, #5fa71a, #82c919, #a8eb12);
+    color: white;
+}
+
+#wrong {
+    padding: 1rem 2rem;
+    background-image: linear-gradient(to right top, #661313, #871425, #a8133c, #ca1058, #eb1279);
+    color: white;
+    margin-left: 110px;
+}
+
+img {
+    width: 50%;
+    display: flex;
+    justify-content:center;
+}
