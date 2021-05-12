@@ -26,30 +26,30 @@ let responses = [
 
 
 
-function getQuestion(questionId)
+function getQuestion(questionId) // fonction pour récup la question
 {
 
-    return questions[questionId];
+    return questions[questionId]; // recupère la question[x]
 
 }
 
 
-function askQuestion(questionId)
+function askQuestion(questionId) // fonction pour récupérer la question et récupérer la réponse
 {
 
-    let question = getQuestion(questionId);
-    let answer = window.prompt(question);
+    let question = getQuestion(questionId); // récupère la question[x]
+    let userAnswer = window.prompt(question); // récupère la réponse [x] de la question [x] dans une variable
 
-    return answer;
+    return userAnswer;                        //  retourne la variable de la réponse[x] de la question [x]
 }
 
 
-function verifyAnswer(questionId, userAnswer)
+function verifyAnswer(questionId, userAnswer) // fonction pour vérifier si la réponse [x] est juste
 {
 
-    let correctAnswer = responses[questionId];
+    let correctAnswer = responses[questionId]; // récupère la bonne réponse[x] correspondant a la question[x] pour comparer
 
-    if (userAnswer == correctAnswer)
+    if (userAnswer == correctAnswer) 
     {
         return true;
     }
