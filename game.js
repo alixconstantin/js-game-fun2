@@ -49,43 +49,43 @@ function verifyAnswer(questionId, userAnswer) // fonction pour vérifier si la r
 
     let correctAnswer = responses[questionId]; // récupère la bonne réponse[x] correspondant a la question[x] pour comparer
 
-    if (userAnswer == correctAnswer) 
+    if (userAnswer == correctAnswer) // si reponse[x] du prompt correspond a la reponse[x] a la reponse[x] du tableau
     {
-        return true;
+        return true;  // retourne true
     }
     else
     {
-        return false;
+        return false; // sinon retourne false
     }
 }
 
 
-function addToDom(questionId, isCorrect)
+function addToDom(questionId, isCorrect)  // fonction pour ajouter au Dom la réponse, dans la div correspondante a true ou false
 {
-    let question = getQuestion(questionId);
+    let question = getQuestion(questionId); // stock dans une variable la question[x]
 
-    if (isCorrect)
+    if (isCorrect) // si la question[x] correspond a la reponse [x]
     {
-        let greenList = document.querySelector("#right .responses");
-        greenList.innerHTML += "<li>" + question + "</li>";
+        let greenList = document.querySelector("#right .responses"); // selectionne l'element du DOM right>responses
+        greenList.innerHTML += "<li>" + question + "</li>"; // ajoute du HTML a l'endroit selectionné
     }
 
     else
     {
 
-        let redList = document.querySelector("#wrong .responses");
-        redList.innerHTML += "<li>" + question + "</li>";
+        let redList = document.querySelector("#wrong .responses"); // sinon selectionne un autre element du DOM
+        redList.innerHTML += "<li>" + question + "</li>"; // ajoute du HTML a l'endroit selectionné
 
     }
 
 }
 
 
-for (let questionId in questions)
-{
+for (let questionId in questions) // boucle For In pour executer la totalité des questions
+{                                   // pour chaques question[x] dans le tableau questions[x,x,x,etc]
 
-    let userAnswer = askQuestion(questionId);
-    let isCorrect = verifyAnswer(questionId, userAnswer);
-    addToDom(questionId, isCorrect);
+    let userAnswer = askQuestion(questionId); // récupère la réponses de l'utilisateur 
+    let isCorrect = verifyAnswer(questionId, userAnswer); // récupère le boléen de la réponses de l'utilisateur
+    addToDom(questionId, isCorrect); // rajoute la réponse de l'utilisateur au DOM a l'endroit specifique dédiés a son booleens
 
 }
