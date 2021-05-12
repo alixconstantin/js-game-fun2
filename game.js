@@ -11,7 +11,7 @@ let questions = [
     "How much foot have humans ?"
 ];
 
-let answers = [
+let responses = [
     12,
     72,
     1789,
@@ -23,6 +23,69 @@ let answers = [
     67805.946,
     2
 ];
-    
 
 
+
+function getQuestion(questionId)
+{
+
+    return questions[questionId];
+
+}
+
+
+function askQuestion(questionId)
+{
+
+    let question = getQuestion(questionId);
+    let answer = window.prompt(question);
+
+    return answer;
+}
+
+
+function verifyAnswer(questionId, userAnswer)
+{
+
+    let correctAnswer = responses[questionId];
+
+    if (userAnswer == correctAnswer)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+function addToDom(questionId, isCorrect)
+{
+    let question = getQuestion(questionId);
+
+    if (isCorrect)
+    {
+        let greenList = document.querySelector("#right .responses");
+        greenList.innerHTML += "<li>" + question + "</li>";
+    }
+
+    else
+    {
+
+        let redList = document.querySelector("#wrong .responses");
+        redList.innerHTML += "<li>" + question + "</li>";
+
+    }
+
+}
+
+
+for (let questionId in questions)
+{
+
+    let userAnswer = askQuestion(questionId);
+    let isCorrect = verifyAnswer(questionId, userAnswer);
+    addToDom(questionId, isCorrect);
+
+}
